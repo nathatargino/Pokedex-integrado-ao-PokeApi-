@@ -176,23 +176,27 @@
 @media screen and (min-width: 150px) {
     .pokemons {
         grid-template-columns: 1fr;
+        max-width: 100vw;
     }
 }
 
 @media screen and (min-width: 380px) {
     .pokemons {
         grid-template-columns: 1fr 1fr;
+        max-width: 100vw;
     }
 }
 
 @media screen and (min-width: 576px) {
     .pokemons {
         grid-template-columns: 1fr 1fr 1fr;
+        max-width: 100vw;
     }
 }
 
 @media screen and (min-width: 992px) {
     .pokemons {
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        max-width: 100vw;
     }
 }

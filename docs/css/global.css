@@ -7,6 +7,10 @@ body {
     background-color: #f6f8fc;
 }
 
+body, html {
+    overflow-x: hidden;
+  }
+
 .content {
     padding: 1rem;
     background-color: #fff;
