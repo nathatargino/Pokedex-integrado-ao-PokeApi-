@@ -38,6 +38,20 @@ pokeApi.getPokemonDetail = (pokemon) => {
 }
 
 
+pokeApi.getPokemonDetailByName = (name) => {
+    const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
+    return fetch(url)
+        .then((response) => {
+            if (!response.ok) throw new Error('Pokemon não encontrado');
+            return response.json();
+        })
+        .then(convertPokeApiDetailToPokemon);
+};
 
 
-
+pokeApi.getAllPokemonNames = () => {
+    const url = `https://pokeapi.co/api/v2/pokemon?limit=2000&offset=0`;
+    return fetch(url)
+        .then((response) => response.json())
+        .then((jsonBody) => jsonBody.results);
+};

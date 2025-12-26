@@ -1,29 +1,195 @@
-*{
-    font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
+:root {
+    --bg-body: #0b0e14;
+    --bg-content: #161b22;
+    --card-bg: #1f2937;
+    --text-title: #ffffff;
+    --text-body: #94a3b8;
+    --border-color: rgba(255, 255, 255, 0.05);
+    --accent: #6366f1;
 }
 
-body {
-    background-color: #f6f8fc;
+body.light-mode {
+    --bg-body: #f0f2f5;
+    --bg-content: #ffffff;
+    --card-bg: #f8fafc;
+    --text-title: #1a202c;
+    --text-body: #4a5568;
+    --border-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    font-family: 'Inter', 'Roboto', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 body, html {
     overflow-x: hidden;
-  }
-
-.content {
-    padding: 1rem;
-    background-color: #fff;
-    height: 100vh;
-    width: 100vw;
-
+    min-height: 100vh;
+    background-color: var(--bg-body);
+    color: var(--text-body);
 }
 
-@media screen and (min-width: 992px){
+.content {
+    width: 100%;
+    min-height: 100vh;
+    padding: 1rem;
+    background-color: var(--bg-content);
+    border: 1px solid var(--border-color);
+    margin: 0 auto;
+}
+
+.header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    color: var(--text-title);
+    font-size: 1.5rem;
+}
+
+.search-container {
+    position: relative;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    color: var(--text-body);
+    opacity: 0.6;
+}
+
+#pokemonSearch {
+    width: 100%;
+    padding: 12px 12px 12px 45px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-title);
+    font-size: 1rem;
+    outline: none;
+}
+
+#pokemonSearch:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.1);
+}
+
+#theme-toggle {
+    background: var(--card-bg);
+    color: var(--text-title);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sentinel {
+    height: 50px;
+    width: 100%;
+    opacity: 0;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    
+   
+    border-radius: 12px; 
+    
+    
+    background-color: var(--card-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    
+    color: var(--accent);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+.back-to-top:not(.show) {
+    transform: translateY(20px);
+}
+
+.back-to-top:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    transform: translateY(-5px); 
+}
+
+.back-to-top .material-icons {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+@media screen and (min-width: 480px) {
+    .content {
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .content {
+        width: 90%;
+        min-height: auto;
+        margin: 2rem auto;
+        border-radius: 1rem;
+        padding: 2rem;
+    }
+}
+
+@media screen and (min-width: 992px) {
     .content {
         max-width: 992px;
-        height: auto;
-        margin: 1rem auto;
-        border-radius: 1rem;
+        margin: 4rem auto;
+        border-radius: 1.5rem;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .content {
+        max-width: 1100px;
     }
 }
