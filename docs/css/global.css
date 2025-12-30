@@ -160,10 +160,7 @@ h1 {
 }
 
 /* ===== MODAL ===== */
-body.modal-open {
-    overflow: hidden !important;
-    height: 100vh; 
-}
+
 .modal {
     position: fixed;
     inset: 0;

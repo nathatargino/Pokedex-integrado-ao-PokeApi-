@@ -5,6 +5,7 @@ const sentinel = document.getElementById('sentinel');
 const modal = document.getElementById('pokemonModal');
 const modalDetails = document.getElementById('modalDetails');
 const closeModal = document.querySelector('.close-modal');
+const backToTop = document.getElementById("back-to-top");
 const body = document.body;
 
 const limit = 12;
@@ -195,4 +196,22 @@ themeToggle.addEventListener('click', () => {
     const isLightMode = document.body.classList.contains('light-mode');
     themeToggle.innerText = isLightMode ? 'light_mode' : 'dark_mode';
     localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+});
+
+// Botão para o topo 
+const backToTopButton = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+        backToTopButton.classList.add('show');
+    } else {
+        backToTopButton.classList.remove('show');
+    }
+});
+
+backToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
