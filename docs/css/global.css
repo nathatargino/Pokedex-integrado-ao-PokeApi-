@@ -159,6 +159,123 @@ h1 {
     font-weight: bold;
 }
 
+/* ===== MODAL ===== */
+body.modal-open {
+    overflow: hidden !important;
+    height: 100vh; 
+}
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    overflow-y: hidden;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 1rem;
+}
+
+
+/* Quando abrir */
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.modal.show {
+    display: flex;
+    
+}
+
+.modal-content {
+    background-color: var(--bg-content);
+    color: var(--text-title);
+
+    width: 100%;
+    max-width: 435px;
+    max-height: 88vh;
+
+    border-radius: 1.2rem;
+    padding: 3.2rem 2rem 2rem; 
+
+    position: relative;
+    overflow-y: hidden;
+
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    animation: modalFadeIn 0.25s ease-out;
+}
+
+/* Animação suave */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+.close-modal {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--card-bg);
+    color: var(--text-title);
+    font-size: 20px;
+    font-weight: 700;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+/* Hover */
+.close-modal:hover {
+    box-shadow: 0 10px 22px rgba(6, 182, 212, 0.45);
+    transform: scale(1.03);
+}
+
+.material-icons
+
+/* Active (clique) */
+.close-modal:active {
+    transform: scale(0.95);
+}
+
+/* Imagem do Pokémon */
+#modalDetails img {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    margin: 0 auto 1.5rem; 
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+    padding: 4rem 2rem 2rem; 
+    position: relative;
+    overflow-y: hidden;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 10px;
+}
+
 @media screen and (min-width: 480px) {
     .content {
         padding: 1.5rem;
